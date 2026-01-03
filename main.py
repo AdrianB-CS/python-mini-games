@@ -16,6 +16,7 @@ print("Word to guess: " + placeholder)
 
 game_over = False
 correct_letters = []
+wrong_letters = []
 
 while not game_over:
 
@@ -39,13 +40,15 @@ while not game_over:
 
     if guess not in chosen_word:
         lives -= 1
+        wrong_letters.append(guess)
         print("You guessed " + str(guess) + ", that's not in the word. You lose a life.")
-        print("You have " + str(lives) + " left.")
+        print("You have " + str(lives) + " lives left.")
+        print("You have guessed " + str(wrong_letters) + " so far.")
         if lives == 0:
             game_over = True
 
             print(f"***********************YOU LOSE**********************")
-            print("You were trying to guess " + {chosen_word})
+            print("You were trying to guess " + str(chosen_word))
 
     if "_" not in display:
         game_over = True
